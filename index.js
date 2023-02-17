@@ -2,13 +2,14 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var cors = require('cors')
 var jsonParser = bodyParser.json()
-const { Configuration, OpenAIApi } = require("openai");
+const { Configuration, OpenAIApi } = require("openai")
+require('dotenv').config()
 
 const configuration = new Configuration({
-    apiKey: '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',
+    apiKey: process.env.OPENAI_API_KEY,
 });
 
-const openai = new OpenAIApi(configuration);
+const openai = new OpenAIApi(configuration)
 
 var app = express()
 var port = 3000;
